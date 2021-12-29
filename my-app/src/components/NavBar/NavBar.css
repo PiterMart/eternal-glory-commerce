@@ -1,0 +1,43 @@
+*{
+    list-style-type: none;
+    /* font-family: monospace; */
+    
+
+}
+
+
+ul{
+    display: flex;
+    flex-direction: row;
+    background: black;
+    margin: 0;
+    padding-left: 0;
+    
+
+
+}
+
+li{
+    padding: 0.55rem;
+    color: white;
+    text-align: center;
+    text-justify: auto;
+    font-size: 1.2rem;
+    align-self: center;
+    font-weight: lighter;
+}
+
+.link{
+    padding: 0.55rem;
+    color: white;
+    text-align: center;
+    text-justify: auto;
+    font-size: 1.2rem;
+    align-self: center;
+    font-weight: lighter;
+
+}
+li img{
+    width: 15rem;
+    padding-right: 0.25rem;
+}

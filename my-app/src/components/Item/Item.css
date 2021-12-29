@@ -1,0 +1,29 @@
+.Item img{
+
+    width: 20rem;
+    height: 400px;
+}
+.Item{
+    padding: 2rem;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.246);
+    margin: 1.5rem;
+}
+a{
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+button {
+    background: #000000;
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+    color: #ffffff;
+    font-size: 15px;
+    padding: 5px 10px 5px 10px;
+    text-decoration: none;
+  }
