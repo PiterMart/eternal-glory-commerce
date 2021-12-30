@@ -1,6 +1,9 @@
 import { useState, useContext } from 'react'
 import './ItemDetail.css'
-// import NotificationContext from '../Notification/Notification'
+import loading from '../../assets/loading.gif'
+
+// import { CartContext } from '../../context/cartContext'
+// import NotificationContext from '../../context/NotificationContext'
 
 
 const InputCount = ({onConfirm, maxQuantity}) => {
@@ -48,6 +51,8 @@ const ButtonCount = ({ onConfirm, maxQuantity}) => {
 }
 
 const ItemDetail = ({ product, inputType = 'input' }) => {
+    // const value = useContext(CartContext)
+    //     console.log(value)
 
   const Count = inputType === 'input' ? InputCount : ButtonCount
 

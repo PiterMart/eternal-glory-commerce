@@ -5,8 +5,8 @@ import '../../assets/eternal logo small.png'
 import CartWidget from '../CartWidget/CartWidget'
 import { Link } from 'react-router-dom'
 import { getCategories } from '../../products'
-import UserContext from '../../context/userContext'
-import NotificationContext from '../../context/NotificationContext'
+// import UserContext from '../../context/userContext'
+// import NotificationContext from '../../context/NotificationContext'
 
 
 

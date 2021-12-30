@@ -1,18 +1,18 @@
-// import { useContext } from "react"
-// import NotificationContext from '../../context/NotificationContext'
+import { useContext } from "react"
+import NotificationContext from '../../context/NotificationContext'
 
-// const Notification = () => {
-//     const { notification, setNotification } = useContext(NotificationContext)
+const Notification = () => {
+    const { notification } = useContext(NotificationContext)
 
-//     if(notification.message === '') {
-//         return null
-//     }
+    if(notification.message === '') {
+        return null
+    }
 
-//     return(
-//         <div style={{ color: notification.severity === 'error' ? 'red' : 'green'}} onClick={() => setNotification('succes', '')}>
-//             {notification.message}
-//         </div>
-//     )
-// }
+    return(
+        <div style={{ color: notification.severity === 'error' ? 'red' : 'green'}}>
+            {notification.message}
+        </div>
+    )
+}
 
-// export default Notification
+export default Notification
