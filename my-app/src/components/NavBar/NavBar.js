@@ -5,6 +5,8 @@ import '../../assets/eternal logo small.png'
 import CartWidget from '../CartWidget/CartWidget'
 import { Link } from 'react-router-dom'
 import { getCategories } from '../../products'
+// import { db } from '../../services/firebase/firebase'
+// import { getDoc, collection } from 'firebase/firebase'
 // import UserContext from '../../context/userContext'
 // import NotificationContext from '../../context/NotificationContext'
 

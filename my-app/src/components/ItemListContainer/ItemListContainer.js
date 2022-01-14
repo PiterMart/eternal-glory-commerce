@@ -23,7 +23,7 @@ const ItemListContainer = ()=> {
                 return{ id: doc.id, ...doc.data()}
             })
             setProducts(products)
-        }).catch(error  => {
+        }).catch((error)  => {
             console.log('error searching items',error)
         }).finally(() => {
             setIsLoading(false)
@@ -36,7 +36,7 @@ const ItemListContainer = ()=> {
                 return{ id: doc.id, ...doc.data()}
             })
             setProducts(products)
-        }).catch(error  => {
+        }).catch((error)  => {
             console.log('error searching items',error)
         }).finally(() => {
             setIsLoading(false)

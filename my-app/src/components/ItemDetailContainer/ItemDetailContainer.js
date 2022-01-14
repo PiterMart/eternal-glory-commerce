@@ -4,9 +4,9 @@ import './ItemDetailContainer.css'
 import ItemDetail from "../ItemDetail/ItemDetail"
 // import { getProductById } from '../../products'
 import { useParams } from 'react-router-dom'
-import {getDoc, doc, QuerySnapshot} from 'firebase/firestore'
+import {getDoc, doc, querySnapshot} from 'firebase/firestore'
 import { db } from '../../services/firebase/firebase'
-import loading from '../../assets/loading.gif'
+
 
 const ItemDetailContainer = () => {
     const [product, setProduct] = useState()
@@ -20,8 +20,8 @@ const ItemDetailContainer = () => {
     useEffect(() => {
         
         setLoading(true)
-        getDoc(doc(db, 'items', paramId)).then((QuerySnapshot) => {
-            const product = {id: QuerySnapshot.id, ...QuerySnapshot.data()}
+        getDoc(doc(db, 'items', paramId)).then((querySnapshot) => {
+            const product = {id: querySnapshot.id, ...querySnapshot.data()}
             setProduct(product)
         }).catch((error) => {
             console.log('error searching item', error)
@@ -36,7 +36,7 @@ const ItemDetailContainer = () => {
         
     }, [paramId])
 
-    if(loading) return <><img src={loading} alt="Loading.."></img></>
+    if(loading) return <><img src={'../../assets/loading.gif'} alt="Loading.."></img></>
 
 
 
