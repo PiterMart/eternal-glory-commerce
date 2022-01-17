@@ -5,9 +5,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Nav from "./components/NavBar/NavBar"
 import background from "./assets/animacionGirl.mp4"
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer"
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer'
 // import Notification from './context/NotificationContext'
 // import { NotificationContextProvider } from "./context/NotificationContext"
-import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer'
 // import ItemDetail from "./components/ItemDetail/ItemDetail"
 // import { CartContext } from "./context/cartContext"
 
