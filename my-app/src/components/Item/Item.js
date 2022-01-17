@@ -48,16 +48,7 @@ const Item = ({ product, }) => {
                 <img src={product.img} alt={product.name} className="ItemImg"/>
             </picture>
             <section>
-                <p className="Info">
-                    Categoria: {product.category}
-                </p>
-                <p className="Info">
-                    Precio: {product.price}
-                </p>
-                <p> 
-                    Stock: {product.stock}
-                </p>
-                {show && <TestComponent id={product.id}/>}
+                <div className={show ? 'show' : 'hide'}><TestComponent id={product.id} /></div>
             </section>           
         </article>
     )

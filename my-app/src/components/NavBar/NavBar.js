@@ -31,8 +31,8 @@ const Nav = () => {
     return(
         <div className="Nav">
             <ul>
-                <li><img src={require("../../assets/eternal logo small.png")} alt='Home'></img></li>
-                <Link to={'/'} className='link'>Releases</Link>
+                <li><Link to={'/'} className='link'><img src={require("../../assets/eternal logo small.png")} alt='Home'></img></Link></li>
+                <Link to={'releases'} className='link'>Releases</Link>
                 <li className="Categories">
                     {categories.map(cat => <Link key={cat.id} className='Option' to={`/category/${cat.id}`}>{cat.description}</Link>)}
                 </li>

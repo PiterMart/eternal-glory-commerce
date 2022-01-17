@@ -31,13 +31,3 @@
     align-self: center;
 
 }
-button {
-    background: #000000;
-    -webkit-border-radius: 28;
-    -moz-border-radius: 28;
-    border-radius: 28px;
-    color: #ffffff;
-    font-size: 15px;
-    padding: 5px 10px 5px 10px;
-    text-decoration: none;
-  }

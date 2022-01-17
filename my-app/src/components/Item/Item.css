@@ -16,13 +16,9 @@ a{
     border-radius: 5px;
 }
 
-button {
-    background: #000000;
-    -webkit-border-radius: 28;
-    -moz-border-radius: 28;
-    border-radius: 28px;
-    color: #ffffff;
-    font-size: 15px;
-    padding: 5px 10px 5px 10px;
-    text-decoration: none;
-  }
+.show{
+    opacity: 1;
+}
+.hide{
+    opacity: 0;
+}

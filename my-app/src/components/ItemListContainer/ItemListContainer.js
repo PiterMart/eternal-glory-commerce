@@ -53,6 +53,7 @@ const ItemListContainer = ()=> {
 
   return (
       <div className="ItemListContainer">
+          <h1>All Eternal Glory wares</h1>
           <ItemList  products={products}/>
       </div>
   )    

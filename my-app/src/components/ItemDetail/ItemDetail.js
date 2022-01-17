@@ -74,13 +74,10 @@ const ItemDetail = ({ product, inputType = 'input' }) => {
             </picture>
             <section>
                 <p className="Info">
-                    Categoria: {product?.category}
+                    {product?.description}
                 </p>
                 <p className="Info">
-                    Descripción: {product?.description}
-                </p>
-                <p className="Info">
-                    Precio: {product?.price}
+                    $ {product?.price}
                 </p>
             </section>           
             <footer className='ItemFooter'>
