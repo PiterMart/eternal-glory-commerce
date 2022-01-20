@@ -16,29 +16,35 @@ const ItemListContainer = ()=> {
 
   useEffect(() => {        
       if(!categoryId){
-        getDocs(collection(db,'items')).then((querySnapshot) => {
+        getDocs(collection(db,'items'))
+        .then((querySnapshot) => {
             console.log(querySnapshot)
             const products = querySnapshot.docs.map(doc => {
                 console.log(doc)
                 return{ id: doc.id, ...doc.data()}
             })
             setProducts(products)
-        }).catch((error)  => {
+        })
+        .catch((error)  => {
             console.log('error searching items',error)
-        }).finally(() => {
+        })
+        .finally(() => {
             setIsLoading(false)
         })
     } else{
-        getDocs(query(collection(db,'items'), where('category', '===', categoryId))).then((querySnapshot) => {
+        getDocs(query(collection(db,'items'), where('category', '==', categoryId)))
+        .then((querySnapshot) => {
             console.log(querySnapshot)
             const products = querySnapshot.docs.map(doc => {
                 console.log(doc) 
                 return{ id: doc.id, ...doc.data()}
             })
             setProducts(products)
-        }).catch((error)  => {
+        })
+        .catch((error)  => {
             console.log('error searching items',error)
-        }).finally(() => {
+        })
+        .finally(() => {
             setIsLoading(false)
         })
 

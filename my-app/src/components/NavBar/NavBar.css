@@ -12,6 +12,7 @@ ul{
     background: black;
     margin: 0;
     padding-left: 0;
+    padding-top: 0;
     
 
 
@@ -40,4 +41,9 @@ li{
 li img{
     width: 15rem;
     padding-right: 0.25rem;
+}
+
+.nav{
+    margin-top: 0;
+    padding-top: 0;
 }

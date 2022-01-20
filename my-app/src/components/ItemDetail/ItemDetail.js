@@ -1,9 +1,8 @@
 import { useState, useContext } from 'react'
 import './ItemDetail.css'
 import loading from '../../assets/loading.gif'
-
-// import { CartContext } from '../../context/cartContext'
-// import NotificationContext from '../../context/NotificationContext'
+import CartContext   from '../../context/cartContext'
+import NotificationContext from '../../context/NotificationContext'
 
 
 const InputCount = ({onConfirm, maxQuantity}) => {
@@ -51,16 +50,17 @@ const ButtonCount = ({ onConfirm, maxQuantity}) => {
 }
 
 const ItemDetail = ({ product, inputType = 'input' }) => {
-    // const value = useContext(CartContext)
-    //     console.log(value)
 
   const Count = inputType === 'input' ? InputCount : ButtonCount
 
-//   const {setNotification} = useContext(NotificationContext)
+  const {setNotification} = useContext(NotificationContext)
+  const {addItem} = useContext(CartContext)
 
-//   const addToCart = (count) => {
-//     setNotification('succes', `Agregado al carrito ${count}`)     
-//   }
+  const addToCart = (count) => {
+      console.log('se agrego ' + count + ' ' + product?.name)
+    setNotification('succes', `Agregado al carrito ${count} ` + product?.name)  
+    addItem(product, count);
+  }
 
     return (
         <article className="CardItem">
@@ -81,8 +81,8 @@ const ItemDetail = ({ product, inputType = 'input' }) => {
                 </p>
             </section>           
             <footer className='ItemFooter'>
-             {/* <Count onConfirm={addToCart} maxQuantity={product?.stock}/> */}
-             <Count maxQuantity={product?.stock}/>
+             <Count onConfirm={addToCart} maxQuantity={product?.stock}/>
+             {/* <Count maxQuantity={product?.stock}/> */}
             </footer>
         </article>
     )

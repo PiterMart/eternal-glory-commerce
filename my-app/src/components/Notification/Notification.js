@@ -2,15 +2,19 @@ import { useContext } from "react"
 import NotificationContext from '../../context/NotificationContext'
 
 const Notification = () => {
-    const { notification } = useContext(NotificationContext)
+    const { notification,} = useContext(NotificationContext)
 
     if(notification.message === '') {
-        return null
+        return (
+            <div className="marqueeContainer" >
+                <marquee> Gracias por comprar en Eternal Glory</marquee>
+            </div>
+        )
     }
 
     return(
-        <div style={{ color: notification.severity === 'error' ? 'red' : 'green'}}>
-            {notification.message}
+        <div className="marqueeContainer" style={{color: notification.severity === 'error' ? 'red' : 'white'}}>
+            <marquee>Gracias por comprar en Eternal  * {notification.message}</marquee>
         </div>
     )
 }

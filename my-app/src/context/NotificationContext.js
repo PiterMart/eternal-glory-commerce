@@ -11,7 +11,7 @@ export const NotificationContextProvider = ({children}) => {
         setSeverity(severity)
         setTimeout(() => {
             setMessage('')
-        }, 5000)
+        }, 20000)
     }
 
     return (

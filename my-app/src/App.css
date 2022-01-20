@@ -53,3 +53,13 @@ video{
     transform: rotate(360deg);
   }
 }
+
+marquee{
+  background-color: black;
+  padding: 0;
+}
+
+.marqueeContainer{
+  padding: 0px;
+  margin-bottom: -5px;
+}
