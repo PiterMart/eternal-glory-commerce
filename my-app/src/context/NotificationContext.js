@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const Context = React.createContext()
+const NotificationContext = React.createContext()
 
 export const NotificationContextProvider = ({children}) => {
     const [message, setMessage] = useState('')
@@ -15,7 +15,7 @@ export const NotificationContextProvider = ({children}) => {
     }
 
     return (
-        <Context.Provider value={{
+        <NotificationContext.Provider value={{
             notification: {
                 message,
                 severity
@@ -23,8 +23,8 @@ export const NotificationContextProvider = ({children}) => {
             setNotification
         }}>
             {children}
-        </Context.Provider>
+        </NotificationContext.Provider>
     )
 }
 
-export default Context
+export default NotificationContext;

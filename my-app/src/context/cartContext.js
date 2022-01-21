@@ -3,40 +3,46 @@ import React, {useState, createContext}from 'react'
 
 const CartContext = React.createContext([])
 
-
 export const CartContextProvider = ({children}) => {
-    const [cart, setCart] = useState('')
-    const [totalQuantity, setTotalQuantity] = useState('')
+    const [cart, setCart] = useState([])
+    const [totalQuantity, setTotalQuantity] = useState(0)
 
     const addItem = (item, quantity) => {
         console.log(item);
         const flag = isInCart(item);
-        console.log(flag);
         if (flag) {
-            const repeatedProduct = cart.find(element => element.item === item);
+            let repeatedProduct = cart.find(element => element.item === item);
             repeatedProduct.quantity += quantity;
-            let unrepeatedCart = cart.filter (element => element !== item)
-            setCart([...unrepeatedCart, repeatedProduct])
-
-        } else{
-            setCart(...cart, {item: item, quantity: quantity});
+            let auxiliarCart = cart.filter(element => element.item !== item);
+            setCart([...auxiliarCart, repeatedProduct])
+        } else {
+            setCart([...cart, {item: item, quantity: quantity}]);
         }
+        addAll();
+        console.log(flag);  
     }
     const isInCart = (item) => {
-        return cart.some(product => product.item === item)
-
+        console.log(item);
+        return cart.some(product => product.item === item);
     }
-    const removeItem = (item) => {
-
+    const addAll = () => {
+        console.log('adding')
+        cart.forEach(element => {
+            setTotalQuantity (totalQuantity + element.quantity)
+        })
     }
-    const cleanCart = () => {
+    // const removeItem = (item) => {
 
-    }
+    // }
+    // const cleanCart = () => {
+
+    // }
 
 
     return (
         <CartContext.Provider value={{
-            cart, quantityt: {
+            cart, quantity: {
+                totalQuantity,
                 addItem,
             },
             addItem

@@ -1,6 +1,5 @@
 import { useState, useContext } from 'react'
 import './ItemDetail.css'
-import loading from '../../assets/loading.gif'
 import CartContext   from '../../context/cartContext'
 import NotificationContext from '../../context/NotificationContext'
 
@@ -54,12 +53,12 @@ const ItemDetail = ({ product, inputType = 'input' }) => {
   const Count = inputType === 'input' ? InputCount : ButtonCount
 
   const {setNotification} = useContext(NotificationContext)
-  const {addItem} = useContext(CartContext)
+  const {addItem, } = useContext(CartContext)
 
   const addToCart = (count) => {
-      console.log('se agrego ' + count + ' ' + product?.name)
-    setNotification('succes', `Agregado al carrito ${count} ` + product?.name)  
     addItem(product, count);
+    setNotification('succes', `Agregado al carrito ${count} ` + product?.name)  
+    console.log('se agrego ' + count + ' ' + product?.name)
   }
 
     return (

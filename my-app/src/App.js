@@ -10,7 +10,7 @@ import Welcome from "./components/Welcome/Welcome"
 import Notification from './components/Notification/Notification'
 import { NotificationContextProvider } from "./context/NotificationContext"
 // import ItemDetail from "./components/ItemDetail/ItemDetail"
-import  CartContext  from './context/cartContext'
+import  {CartContextProvider}  from './context/cartContext'
 import Cart from "./components/Cart/Cart"
 
 
@@ -18,7 +18,7 @@ const App = () => {
   return (
     <div className="App">
         <NotificationContextProvider>
-          <CartContext.Provider value={''}>
+          <CartContextProvider>
             <BrowserRouter>
             <Notification />
                 <Nav />
@@ -33,7 +33,7 @@ const App = () => {
                   <Route path='Cart' element={<Cart />} />
                 </Routes>
             </BrowserRouter>
-          </CartContext.Provider>
+          </CartContextProvider>
         </NotificationContextProvider>
     </div>
   );
