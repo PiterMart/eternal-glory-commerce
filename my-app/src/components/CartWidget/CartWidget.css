@@ -8,12 +8,12 @@
 
 }
 .cartWidget p{
-    font-weight: bolder;
-    font-size: 0.75rem;
+    font-weight: 800;
+    font-size: 0.80rem;
     position:absolute;
     color: black;
     border-radius: 5px;
-    background-color: red;
+    background-color: rgb(255, 255, 255);
     z-index: 2;
     margin-bottom: 5px;
     padding: 2px;
