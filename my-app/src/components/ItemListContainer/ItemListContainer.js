@@ -11,7 +11,7 @@ import { collection, getDocs, query, where} from 'firebase/firestore'
 
 const ItemListContainer = ()=> {
   const [products, setProducts] = useState([])
-  const { categoryId } = useParams()
+  const {categoryId} = useParams()
   const [isLoading, setIsLoading] = useState([])
 
   useEffect(() => {        

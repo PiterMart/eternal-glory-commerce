@@ -3,24 +3,7 @@ import "./ItemDetail.css";
 import CartContext from "../../context/cartContext";
 import NotificationContext from "../../context/NotificationContext";
 
-const InputCount = ({ onConfirm, maxQuantity }) => {
-  const [count, setCount] = useState(0);
-
-  const handleChange = ({ target }) => {
-    if (target.value <= maxQuantity && target.value >= 0) {
-      setCount(target.value);
-    }
-  };
-
-  return (
-    <div>
-      <input type="number" onChange={handleChange} value={count} />
-      <button onClick={() => onConfirm(count)}>Agregar al carrito</button>
-    </div>
-  );
-};
-
-const ButtonCount = ({ onConfirm, maxQuantity }) => {
+export const Count = ({ onConfirm, maxQuantity }) => {
   const [count, setCount] = useState(0);
 
   const increment = () => {
@@ -41,14 +24,13 @@ const ButtonCount = ({ onConfirm, maxQuantity }) => {
         <button onClick={decrement}>-</button>
         <span>{count}</span>
         <button onClick={increment}>+</button>
-        <button onClick={() => onConfirm(count)}>Agregar al carrito</button>
+        <button onClick={() => onConfirm(count)}>Add to cart</button>
       </div>
     </div>
   );
 };
 
-const ItemDetail = ({ product, inputType = "input" }) => {
-  const Count = inputType === "input" ? InputCount : ButtonCount;
+const ItemDetail = ({ product,}) => {
 
   const { setNotification } = useContext(NotificationContext);
   const { addItem } = useContext(CartContext);
@@ -60,22 +42,23 @@ const ItemDetail = ({ product, inputType = "input" }) => {
   };
 
   return (
-    <article className="CardItem">
-      <header className="Header">
-        <h2 className="ItemHeader">{product?.name}</h2>
-      </header>
+    <div className="CardItem">
       <picture>
         <img src={product?.img} alt={product?.name} className="ItemImg" />
       </picture>
-      <section>
-        <p className="Info">{product?.description}</p>
-        <p className="Info">$ {product?.price}</p>
-      </section>
-      <footer className="ItemFooter">
-        <Count onConfirm={addToCart} maxQuantity={product?.stock} />
-        {/* <Count maxQuantity={product?.stock}/> */}
-      </footer>
-    </article>
+      <div className="userInterface">
+        <header className="Header">
+          <h2 className="ItemHeader">{product?.type} [{product?.name}]</h2>
+        </header>
+        <section>
+          <h4 className="Info">{product?.description}</h4>
+          <h4 className="Info">$ {product?.price}</h4>
+        </section>
+        <footer className="ItemFooter">
+          <Count onConfirm={addToCart} maxQuantity={product?.stock} />
+        </footer>
+      </div>
+    </div>
   );
 };
 

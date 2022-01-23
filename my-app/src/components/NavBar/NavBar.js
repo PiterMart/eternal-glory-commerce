@@ -5,17 +5,11 @@ import '../../assets/eternal logo small.png'
 import CartWidget from '../CartWidget/CartWidget'
 import { Link } from 'react-router-dom'
 import { getCategories } from '../../products'
-// import { db } from '../../services/firebase/firebase'
-// import { getDoc, collection } from 'firebase/firebase'
-// import UserContext from '../../context/userContext'
-// import NotificationContext from '../../context/NotificationContext'
-
-
 
 const Nav = () => {
+
+    
     const [categories, setCategories] = useState([])
-    // const { user, logout} = useContext(UserContext)
-    // const { setNotification} = useContext(NotificationContext)
 
     useEffect(() => {
         getCategories().then(categories =>{
@@ -23,32 +17,22 @@ const Nav = () => {
         })
     },[])
 
-    // const handleLogout = () => {
-    //     logout()
-    //     setNotification('error', `Hasta luego ${user}`)
-    // }
-
     return(
         <div className="Nav">
-            <ul>
-                <li><Link to={'/'} className='link'><img src={require("../../assets/eternal logo small.png")} alt='Home'></img></Link></li>
-                <Link to={'releases'} className='link'>Releases</Link>
-                <li className="Categories">
-                    {categories.map(cat => <Link key={cat.id} className='Option' to={`/category/${cat.id}`}>{cat.description}</Link>)}
-                </li>
-                {/* {
-                    user ?
-                    <button onClick={handleLogout} className='Option'>Logout</button>
-                    : <Link to='/login' className='Option'>Login</Link>
-                }     */}
-                
-                
-                <CartWidget/>
-                
-            </ul>
-
+            <div className='menu'>
+                <ul>
+                    <li><Link to={'/'} className='link'><img src={require("../../assets/eternal logo small.png")} alt='Home'></img></Link></li>
+                    <Link to={'releases'} className='link'>Releases</Link>
+                    <li className="Categories">
+                        {categories.map(cat => <Link key={cat.id} className='Option' to={`/category/${cat.id}`}>{cat.description}</Link>)}
+                    </li>
+                    <CartWidget/> 
+                </ul>
+            </div>
+            <label for="bloque_header__nav-toggle" class="bloque_header__nav-toggle-label">
+			    <span></span>
+		    </label>
         </div>
-        
     )
 }
 

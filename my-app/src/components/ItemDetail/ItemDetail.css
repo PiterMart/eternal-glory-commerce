@@ -1,6 +1,20 @@
+.CardItem{
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 1.5rem;
+}
+.CardItem img{
+
+    width: 90%;
+
+}
+.userInterface{
+    padding: 10px;
+    padding-left: 5rem;
+}
 .counterContainer{
     margin: auto;
-    background-color: rgba(0, 0, 0, 0.568);
     color: white;
     display: flex;
     flex-direction: column;
@@ -19,11 +33,10 @@
 }
 .count span{
 
-    padding-left: 2rem;
-    padding-right: 2rem;
-    background-color: white;
-    border-radius: 10px;
-    color: rgb(0, 0, 0);
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: rgba(0, 0, 0, 0.623);
+    color: rgb(255, 255, 255);
     font-weight: bold;
 }
 .addToCart {
@@ -32,18 +45,40 @@
 
 }
 button {
-    background: #000000;
-    border-radius: 2px;
+    background: #00000000;
     color: #ffffff;
-    font-size: 15px;
-    padding: 5px 10px 5px 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.25rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
     text-decoration: none;
-  }
-.CardItem img{
+}
 
-    width: 20rem;
-    height: 400px;
+@media screen and (max-width: 950px) {
+
+    .CardItem{
+        flex-direction: column;
+    }
+
+
+
+    .CardItem img{
+
+        width: 100%;
+    
+    }
+
+    .userInterface{
+        padding: 10px;
+        padding-left: 0rem;
+    }
+
 
 }
-.CardItem{
+@media screen and (min-width: 1250px){
+    .CardItem img{
+        width: 490px;
+    }
+
 }

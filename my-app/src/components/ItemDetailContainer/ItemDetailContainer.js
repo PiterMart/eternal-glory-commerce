@@ -43,8 +43,6 @@ const ItemDetailContainer = () => {
     return(
         <div className='ItemDetailContainer'>
             <ItemDetail product={product} inputType={inputType}/>
-            <button onClick={() => setInputType('input')}>Input</button>
-            <button onClick={() => setInputType('button')}>Button</button>
         </div>
     )
 }

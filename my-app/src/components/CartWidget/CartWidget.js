@@ -8,13 +8,13 @@ import  CartContext  from '../../context/cartContext';
 
 const CartWidget = () => {
 
-    const {cart} = useContext(CartContext)
+    const {totalQuantity} = useContext(CartContext)
     
 
     return(
 
         <div className='cartWidget'><Link to={'Cart'} className='link'>
-            <p>{cart.totalQuantity}</p>
+            <p>{totalQuantity}</p>
             <img src={require('../../assets/shoppingCartWhite.png') } alt="Cart"></img>
             </Link>
         </div>

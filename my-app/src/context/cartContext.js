@@ -27,7 +27,10 @@ export const CartContextProvider = ({ children }) => {
       });
     }
     console.log(flag);
+    console.log(cart)
+    console.log(cart)
   };
+
   const isInCart = (item) => {
     console.log(item);
     return cart.some((product) => product.item === item);
@@ -58,11 +61,9 @@ export const CartContextProvider = ({ children }) => {
   return (
     <CartContext.Provider
       value={{
-        cart: {
+        cart,
           totalQuantity,
           addItem,
-        },
-        addItem,
       }}
     >
       {children}

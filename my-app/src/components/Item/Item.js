@@ -14,12 +14,9 @@ const TestComponent = (product) => {
     }
 
     useEffect(() => {
-        console.log('el componente se monto')
         return () => {
-            console.log('el componente se va a desmontar')
         }
     }, [])
-    console.log('el componente se va a montar')
     return(
         <div>
             <DetailButton/>

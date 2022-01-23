@@ -11,7 +11,7 @@ import Notification from './components/Notification/Notification'
 import { NotificationContextProvider } from "./context/NotificationContext"
 // import ItemDetail from "./components/ItemDetail/ItemDetail"
 import  {CartContextProvider}  from './context/cartContext'
-import Cart from "./components/Cart/Cart"
+import CartDisplay from "./components/Cart/Cart"
 
 
 const App = () => {
@@ -30,7 +30,7 @@ const App = () => {
                   <Route path='releases' element={<ItemListContainer/>}/>
                   <Route path='category/:categoryId' element={<ItemListContainer/>} />
                   <Route path='detail/:paramId' element={<ItemDetailContainer />} />
-                  <Route path='Cart' element={<Cart />} />
+                  <Route path='Cart' element={<CartDisplay />} />
                 </Routes>
             </BrowserRouter>
           </CartContextProvider>

@@ -7,8 +7,8 @@ const products = [
 ]
 
 const categories = [
-    {id:'invierno', description:'Invierno'},
-    {id:'verano', description:'Verano'}
+    {id:'winter', description:'Winter'},
+    {id:'sumer', description:'Sumer'}
 ]
 
 export const getCategories = () => {    
