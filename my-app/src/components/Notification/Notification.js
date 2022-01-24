@@ -7,7 +7,7 @@ const Notification = () => {
     if(notification.message === '') {
         return (
             <div className="marqueeContainer" >
-                <marquee>Thank you for visiting Eternal Glory's Webpage</marquee>
+                <marquee> Thank you for visiting Eternal Glory's Webpage</marquee>
             </div>
         )
     }

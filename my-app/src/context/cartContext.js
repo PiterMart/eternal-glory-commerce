@@ -1,5 +1,4 @@
 import React, { useState, createContext, useEffect, useCallback } from "react";
-import ItemDetail from "../components/ItemDetail/ItemDetail";
 
 const CartContext = createContext([]);
 
@@ -61,39 +60,21 @@ export const CartContextProvider = ({ children }) => {
     console.log(item)
       let repeatedProduct = cart.find((element) => element.item.id === item);
       console.log('here is repeated' + repeatedProduct)
-      let newCart = [...cart];
       console.log(cart[0].item.id)
       const newObject = {
         item: repeatedProduct.item,
         quantity: Number(repeatedProduct.quantity),
       };
-      const index = cart.findIndex((cartItem) => cartItem.item.id === item)
-      console.log(index)
-
-      if (index >= 0){
-        newCart.splice(index,1)
-        console.log('here is new' + newCart)
+      if (repeatedProduct.quantity <= 1){
+        let auxiliarCart = cart.filter((element) => element.item === item);
+        setCart([...auxiliarCart])
+      }else {
         newObject.quantity -= 1;
-        setCart([newCart ,newObject]);
-        //item exists in basket
-      }else{
-        console.warn(
-          `cant remove product ${item}`
-        )
+      let auxiliarCart = cart.filter((element) => element.item === item);
+      console.log('here is auxiliar' + auxiliarCart)
+      setCart([...auxiliarCart, newObject]);
+      console.log(cart)
       }
-
-
-
-      // if (repeatedProduct.quantity <= 1){
-      //   let auxiliarCart = cart.filter((element) => element.item === item);
-      //   setCart([...auxiliarCart])
-      // }else {
-      //   newObject.quantity -= 1;
-      // let auxiliarCart = cart.filter((element) => element.item === item);
-      // console.log('here is auxiliar' + auxiliarCart)
-      // setCart([...auxiliarCart, newObject]);
-      // console.log(cart)
-      // }
 
     }
 
