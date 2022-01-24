@@ -9,7 +9,7 @@ const TestComponent = (product) => {
 
         function doSomething() {
             console.log(`ver detalle ${product.id}`)
-        }return <Link to={`/detail/${product.id}`}><button onClick={doSomething}>Ver Detalle</button></Link>
+        }return <Link to={`/detail/${product.id}`}><button onClick={doSomething}>See Detail</button></Link>
                 
     }
 

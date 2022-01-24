@@ -1,6 +1,6 @@
 .ItemDetailContainer{
     display: flex;
-    padding-top: 2rem;
+    padding-top: 1rem;
     align-content: center;
     justify-content: center;
     background-color: rgba(0, 0, 0, 0.698);

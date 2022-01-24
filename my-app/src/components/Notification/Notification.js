@@ -7,14 +7,14 @@ const Notification = () => {
     if(notification.message === '') {
         return (
             <div className="marqueeContainer" >
-                <marquee> Gracias por comprar en Eternal Glory</marquee>
+                <marquee>Thank you for visiting Eternal Glory's Webpage</marquee>
             </div>
         )
     }
 
     return(
         <div className="marqueeContainer" style={{color: notification.severity === 'error' ? 'red' : 'white'}}>
-            <marquee>Gracias por comprar en Eternal  * {notification.message}</marquee>
+            <marquee>Thank you for visiting Eternal Glory's Webpage     *     {notification.message}</marquee>
         </div>
     )
 }

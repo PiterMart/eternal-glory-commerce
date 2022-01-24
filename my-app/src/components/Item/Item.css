@@ -23,3 +23,11 @@ a{
 .hide{
     opacity: 0;
 }
+
+@media screen and (max-width: 950px) {
+
+    .Item img{
+        width: 80%;
+
+    }
+}

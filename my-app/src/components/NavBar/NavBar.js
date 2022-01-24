@@ -22,16 +22,13 @@ const Nav = () => {
             <div className='menu'>
                 <ul>
                     <li><Link to={'/'} className='link'><img src={require("../../assets/eternal logo small.png")} alt='Home'></img></Link></li>
-                    <Link to={'releases'} className='link'>Releases</Link>
+                    <Link to={'releases'} className='link'>Catalog</Link>
                     <li className="Categories">
                         {categories.map(cat => <Link key={cat.id} className='Option' to={`/category/${cat.id}`}>{cat.description}</Link>)}
                     </li>
                     <CartWidget/> 
                 </ul>
             </div>
-            <label for="bloque_header__nav-toggle" class="bloque_header__nav-toggle-label">
-			    <span></span>
-		    </label>
         </div>
     )
 }

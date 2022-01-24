@@ -1,10 +1,11 @@
 import { useState, useContext } from "react";
+import { Link } from "react-router-dom";
 import "./ItemDetail.css";
 import CartContext from "../../context/cartContext";
 import NotificationContext from "../../context/NotificationContext";
 
 export const Count = ({ onConfirm, maxQuantity }) => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1);
 
   const increment = () => {
     if (count < maxQuantity) {
@@ -13,8 +14,9 @@ export const Count = ({ onConfirm, maxQuantity }) => {
   };
 
   const decrement = () => {
-    if (count > 0) {
+    if (count > 1) {
       setCount(count - 1);
+      this.count = Math.max(0)
     }
   };
 
@@ -37,8 +39,8 @@ const ItemDetail = ({ product,}) => {
 
   const addToCart = (count) => {
     addItem(product, count);
-    setNotification("succes", `Agregado al carrito ${count} ` + product?.name);
-    console.log("hello se agrego " + count + " " + product?.name);
+    setNotification("succes", `Added  ${count} ` + product?.name + ' to the cart');
+    console.log("added " + count + " " + product?.name);
   };
 
   return (
@@ -57,6 +59,10 @@ const ItemDetail = ({ product,}) => {
         <footer className="ItemFooter">
           <Count onConfirm={addToCart} maxQuantity={product?.stock} />
         </footer>
+        <div className="Buttons">
+          <Link to={'/cart'} className='link'><button>Go to Cart</button></Link>
+          <Link to={'/releases'} className='link'><button>Back to Catalog</button></Link>
+        </div>
       </div>
     </div>
   );

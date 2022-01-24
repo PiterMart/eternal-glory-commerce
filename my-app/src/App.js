@@ -1,6 +1,6 @@
 // import React from "react"
 import "./App.css"
-import React, { useEffect, useContext } from "react"
+import React from "react"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Nav from "./components/NavBar/NavBar"
 import background from "./assets/animacionGirl.mp4"
@@ -9,7 +9,6 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import Welcome from "./components/Welcome/Welcome"
 import Notification from './components/Notification/Notification'
 import { NotificationContextProvider } from "./context/NotificationContext"
-// import ItemDetail from "./components/ItemDetail/ItemDetail"
 import  {CartContextProvider}  from './context/cartContext'
 import CartDisplay from "./components/Cart/Cart"
 

@@ -9,6 +9,10 @@
     width: 90%;
 
 }
+.CardItem button{
+    margin-top: 1rem;
+    
+}
 .userInterface{
     padding: 10px;
     padding-left: 5rem;
@@ -44,6 +48,11 @@
     align-self: center;
 
 }
+
+.Buttons{
+    display: flex;
+    flex-direction: column;
+}
 button {
     background: #00000000;
     color: #ffffff;
@@ -65,7 +74,7 @@ button {
 
     .CardItem img{
 
-        width: 100%;
+        width: 90%;
     
     }
 
