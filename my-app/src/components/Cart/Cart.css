@@ -1,0 +1,36 @@
+.Cart img{
+    width: 50%;
+    padding: 0.5rem;
+}
+
+.Cart{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    padding-bottom: 50px;
+}
+.Cart table, th, td {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    table-layout: fixed;
+  }
+  .Cart table{
+      width: 70%;
+      align-self: center;
+      background-color: rgba(0, 0, 0, 0.698);
+      box-shadow: 00px 0px 20px 5px;
+      margin-top: 4rem;
+  }
+  .Cart button{
+      margin: auto;
+      margin-bottom: 0.5rem;
+      margin-top: 0.5rem;
+
+  }
+
+  .Buttons{
+      padding-top: 3rem;
+  }

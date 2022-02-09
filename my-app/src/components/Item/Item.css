@@ -1,12 +1,13 @@
 .Item img{
 
     width: 20rem;
-    height: 400px;
+    margin-bottom: 1rem;
 }
 .Item{
     padding: 2rem;
     color: white;
-    background-color: rgba(255, 255, 255, 0.246);
+    background-color: rgba(0, 0, 0, 0.342);
+    box-shadow: 00px 0px 10px 1px;
     margin: 1.5rem;
 }
 a{
@@ -16,13 +17,17 @@ a{
     border-radius: 5px;
 }
 
-button {
-    background: #000000;
-    -webkit-border-radius: 28;
-    -moz-border-radius: 28;
-    border-radius: 28px;
-    color: #ffffff;
-    font-size: 15px;
-    padding: 5px 10px 5px 10px;
-    text-decoration: none;
-  }
+.show{
+    opacity: 1;
+}
+.hide{
+    opacity: 0;
+}
+
+@media screen and (max-width: 950px) {
+
+    .Item img{
+        width: 80%;
+
+    }
+}

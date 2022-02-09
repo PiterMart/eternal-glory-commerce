@@ -2,7 +2,6 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import './ItemDetailContainer.css'
 import ItemDetail from "../ItemDetail/ItemDetail"
-// import { getProductById } from '../../products'
 import { useParams } from 'react-router-dom'
 import {getDoc, doc, querySnapshot} from 'firebase/firestore'
 import { db } from '../../services/firebase/firebase'
@@ -42,8 +41,6 @@ const ItemDetailContainer = () => {
 
     return(
         <div className='ItemDetailContainer'>
-            <button onClick={() => setInputType('input')}>Input</button>
-            <button onClick={() => setInputType('button')}>Button</button>
             <ItemDetail product={product} inputType={inputType}/>
         </div>
     )

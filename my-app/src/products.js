@@ -1,14 +1,14 @@
-import topFondoAzul from './assets/topFondoAzul.jpg'
-import remera from './assets/remeraFondoTransparente.png'
+
+
 
 const products = [
-    {id: 1, img: topFondoAzul, name: 'Silly Top', price: '$4000', stock: 5, category: 'verano'}, 
-    {id: 2, img: remera, name: 'Noodle Being', price: '$2500', stock: 0, category: 'invierno'}
+    {id: 1, name: 'Silly Top', price: '$4000', stock: 5, category: 'verano'}, 
+    {id: 2, name: 'Noodle Being', price: '$2500', stock: 0, category: 'invierno'}
 ]
 
 const categories = [
-    {id:'invierno', description:'Invierno'},
-    {id:'verano', description:'Verano'}
+    {id:'winter', description:'Winter'},
+    {id:'sumer', description:'Sumer'}
 ]
 
 export const getCategories = () => {    

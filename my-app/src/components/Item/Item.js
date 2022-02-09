@@ -8,18 +8,14 @@ const TestComponent = (product) => {
     const DetailButton = () =>{
 
         function doSomething() {
-            console.log(`ver detalle ${product.id}`)
-        }return <Link to={`/detail/${product.id}`}><button onClick={doSomething}>Ver Detalle</button></Link>
+        }return <Link to={`/detail/${product.id}`}><button onClick={doSomething}>See Detail</button></Link>
                 
     }
 
     useEffect(() => {
-        console.log('el componente se monto')
         return () => {
-            console.log('el componente se va a desmontar')
         }
     }, [])
-    console.log('el componente se va a montar')
     return(
         <div>
             <DetailButton/>
@@ -33,8 +29,6 @@ const Item = ({ product, }) => {
 
     const handleClick = (evt) => {
         evt.stopPropagation()
-        console.log(`hice click en Item ${product.id}`)
-
     }
 
     return (
@@ -48,16 +42,7 @@ const Item = ({ product, }) => {
                 <img src={product.img} alt={product.name} className="ItemImg"/>
             </picture>
             <section>
-                <p className="Info">
-                    Categoria: {product.category}
-                </p>
-                <p className="Info">
-                    Precio: {product.price}
-                </p>
-                <p> 
-                    Stock: {product.stock}
-                </p>
-                {show && <TestComponent id={product.id}/>}
+                <div className={show ? 'show' : 'hide'}><TestComponent id={product.id} /></div>
             </section>           
         </article>
     )

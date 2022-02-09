@@ -4,12 +4,25 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
-In the project directory, you can run:
-
 This is an E-commerce for Eternal Glory (clothing brand)
 
-1. Nav Bar menu.
-2.
+Components: -Welcome: Welcoming page with a button that links to the 'releases' route.
+            -Notification: Displays a marquee that shows notifications coming from the NotificationContext.
+            -NavBar: Navigation Bar wich contains the following links: image logo 'ETERNAL GLORY' -> Welcome page , Releases -> ItemListContainer, Winter and Summer -> only displays items that match each category, CartWidget -> Cart.
+            -CartWidget: Shows an image of a shopping cart and  a text that displays the totalQuantity of items in the cart through the CartContext.
+            -Item: Shows item name, image,and has a button that links to the 'detail/:paramId' that toggles its visibility if the cursor is above the component.
+            -ItemList: maps all items onto a flexbox.
+            -ItemListContainer: calls the firebase database and sets the products or its childs to use, and displays the hole ItemListContainer or it filters by category.
+            -ItemDetail: Shows the selected item information, a counter (wich is programmed inside the component), and a button that adds the selected amount of that specific item to the cart through the cartContext aswell as sending a message through the NotificationContext . Also a link to 'Cart' (Go to Cart) and 'releases' (Back to catalogue).
+            -ItemDetailContainer: calls the firebase database to fech the selected product by id for its child (ItemDetail) to use. Displays the ItemDetail component.
+            -Cart: Maps a list of products inside the Cart from CartContext, showing an image, name, quantity (inside of cart) and price. Lets user delete items from cart with the (Delete) button using the removeItem function and clear the hole Cart with the cleanCart function from CartContext. Also Links to '/releases' with the (Keep Shopping) button.
+
+Contexts:   -NotificationContext: This context sets the state 'message' with a  20000 ms timeout. That is then provided to  the marquee in the 'Notification' component.
+            -CartContext: 
+
+
+
+In the project directory, you can run:  
 
 ### `npm start`
 

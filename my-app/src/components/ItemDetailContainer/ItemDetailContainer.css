@@ -1,4 +1,18 @@
 .ItemDetailContainer{
+    display: flex;
+    padding-top: 1rem;
+    align-content: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.698);
+    box-shadow: 00px 0px 20px 5px;
+    width: 70%;
+    align-self: center;
+    justify-content: center;
+    margin: auto;
+}
+@media screen and (min-width: 1400px){
+    .ItemDetailContainer{
+        width: 980px;
+    }
 
-    padding-top: 2rem;
 }

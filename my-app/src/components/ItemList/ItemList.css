@@ -6,3 +6,12 @@
     align-content: center;
     justify-content: center;
 }
+
+@media screen and (max-width: 950px) {
+
+    .ItemList {
+        flex-direction: column;
+        width: 90%;
+        margin: auto;
+    }
+}

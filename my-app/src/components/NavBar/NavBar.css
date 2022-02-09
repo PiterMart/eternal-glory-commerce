@@ -1,20 +1,13 @@
 *{
     list-style-type: none;
-    /* font-family: monospace; */
-    
-
 }
-
 
 ul{
     display: flex;
     flex-direction: row;
-    background: black;
     margin: 0;
     padding-left: 0;
-    
-
-
+    padding-top: 0;
 }
 
 li{
@@ -37,7 +30,42 @@ li{
     font-weight: lighter;
 
 }
+
 li img{
     width: 15rem;
     padding-right: 0.25rem;
 }
+
+
+
+.Nav{
+
+    padding-top: 5px;
+    height: 60px;
+    width: 100%;
+    top: 0px;
+    text-align: center;
+    font-family: 'EB Garamond', serif;
+    font-weight: 500;
+    margin-bottom: 5rem;
+    z-index: 4;
+}
+
+
+@media screen and (max-width: 650px){
+
+    ul{
+        display: flex;
+        flex-direction: column;
+    }
+    li{
+        padding: 0px;
+    }
+    .Nav{
+        padding-bottom: 20px;
+    }
+
+}
+
+
+
