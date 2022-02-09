@@ -32,6 +32,7 @@ export const Count = ({ onConfirm, maxQuantity }) => {
   );
 };
 
+
 const ItemDetail = ({ product,}) => {
 
   const { setNotification } = useContext(NotificationContext);
@@ -39,8 +40,7 @@ const ItemDetail = ({ product,}) => {
 
   const addToCart = (count) => {
     addItem(product, count);
-    setNotification("succes", `Added  ${count} ` + product?.name + ' to the cart');
-    console.log("added " + count + " " + product?.name);
+    setNotification(`Added  ${count} ` + product?.name + ' to the cart');
   };
 
   return (
@@ -61,7 +61,7 @@ const ItemDetail = ({ product,}) => {
         </footer>
         <div className="Buttons">
           <Link to={'/cart'} className='link'><button>Go to Cart</button></Link>
-          <Link to={'/releases'} className='link'><button>Back to Catalog</button></Link>
+          <Link to={'/releases'} className='link'><button>Back to Catalogue</button></Link>
         </div>
       </div>
     </div>

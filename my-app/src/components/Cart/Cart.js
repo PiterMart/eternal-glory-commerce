@@ -7,10 +7,8 @@ import { Link } from "react-router-dom";
 
 const CartDisplay = () => {
     
-   const cart = useContext(CartContext)
-   const { removeItem, cleanCart } = useContext(CartContext);
-   console.log(cart)
-
+   const cart = useContext(CartContext);
+   const { removeItem, cleanCart, confirmOrder } = useContext(CartContext);
 
 
     return(
@@ -21,7 +19,7 @@ const CartDisplay = () => {
                 {cart.cart.map(product => {
                         return (
                             <tr key={product.item.id}>
-                                <td><img src={product.item.img} alt="product image"></img></td>
+                                <td><img src={product.item.img} alt={product.item.name}></img></td>
                                 <td>{product.item.name}</td>
                                 <td>{product.quantity}</td>
                                 <td>${product.item.price}</td>
@@ -31,7 +29,7 @@ const CartDisplay = () => {
                         )
                 })}
                 </tbody>
-                <button>BUY</button>
+                <button onClick={confirmOrder}>BUY</button>
             </table>
             <div className="Buttons">
             <button onClick={cleanCart}>Clear Cart</button>

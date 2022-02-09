@@ -8,7 +8,6 @@ const TestComponent = (product) => {
     const DetailButton = () =>{
 
         function doSomething() {
-            console.log(`ver detalle ${product.id}`)
         }return <Link to={`/detail/${product.id}`}><button onClick={doSomething}>See Detail</button></Link>
                 
     }
@@ -30,8 +29,6 @@ const Item = ({ product, }) => {
 
     const handleClick = (evt) => {
         evt.stopPropagation()
-        console.log(`hice click en Item ${product.id}`)
-
     }
 
     return (

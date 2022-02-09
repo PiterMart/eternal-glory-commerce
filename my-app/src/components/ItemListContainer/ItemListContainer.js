@@ -1,8 +1,7 @@
 import React from "react";
 import  { useState, useEffect } from 'react'
 import "./ItemListContainer.css";
-import ItemList from "../ItemList/ItemList";
-import { getProducts } from "../../products";
+import ItemList from "../ItemList/ItemList";  
 import { useParams } from "react-router-dom";
 import loading from '../../assets/loading.gif'
 import { db } from "../../services/firebase/firebase";
@@ -18,9 +17,9 @@ const ItemListContainer = ()=> {
       if(!categoryId){
         getDocs(collection(db,'items'))
         .then((querySnapshot) => {
-            console.log(querySnapshot)
+            // console.log(querySnapshot)
             const products = querySnapshot.docs.map(doc => {
-                console.log(doc)
+                // console.log(doc)
                 return{ id: doc.id, ...doc.data()}
             })
             setProducts(products)
@@ -34,9 +33,9 @@ const ItemListContainer = ()=> {
     } else{
         getDocs(query(collection(db,'items'), where('category', '==', categoryId)))
         .then((querySnapshot) => {
-            console.log(querySnapshot)
+            // console.log(querySnapshot)
             const products = querySnapshot.docs.map(doc => {
-                console.log(doc) 
+                // console.log(doc) 
                 return{ id: doc.id, ...doc.data()}
             })
             setProducts(products)

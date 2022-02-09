@@ -4,11 +4,11 @@ const NotificationContext = React.createContext()
 
 export const NotificationContextProvider = ({children}) => {
     const [message, setMessage] = useState('')
-    const [severity, setSeverity] = useState('')
 
-    const setNotification = (severity, message) => {
+
+    const setNotification = (message) => {
         setMessage(message)
-        setSeverity(severity)
+
         setTimeout(() => {
             setMessage('')
         }, 20000)
@@ -17,8 +17,7 @@ export const NotificationContextProvider = ({children}) => {
     return (
         <NotificationContext.Provider value={{
             notification: {
-                message,
-                severity
+                message
             },
             setNotification
         }}>

@@ -1,14 +1,23 @@
-import React, { useState, createContext, useEffect, useCallback } from "react";
-
+import React, { useState, createContext, useEffect, useCallback, useContext } from "react";
+import { addDoc, collection, doc, DocumentSnapshot, Timestamp, updateDoc, writeBatch, getDoc } from "firebase/firestore";
+import { db } from "../services/firebase/firebase";
+import NotificationContext from "./NotificationContext";
 const CartContext = createContext([]);
 
 export const CartContextProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [totalQuantity, setTotalQuantity] = useState(0);
+  const [processingOrder, setProcessingOrder] = useState(false)
+  const setNotification = useContext(NotificationContext)
+  const [contact, setContact] = useState({
+    phone: '',
+    adress: '',
+    comment: '',
+    date: ''
+  })
 
   const addItem = (item, quantity) => {
-    console.log('hola')
-    console.log(quantity)
+
     const flag = isInCart(item);
     if (flag) {
       let repeatedProduct = cart.find((element) => element.item === item);
@@ -19,7 +28,6 @@ export const CartContextProvider = ({ children }) => {
       newObject.quantity += Number(quantity);
       let auxiliarCart = cart.filter((element) => element.item !== item);
       setCart([...auxiliarCart, newObject]);
-      console.log(auxiliarCart)
     } else {
       setCart((prevState) => {
         const result = [
@@ -29,13 +37,9 @@ export const CartContextProvider = ({ children }) => {
         return result;
       });
     }
-    console.log(flag);
-    console.log(cart)
-    console.log(cart)
   };
 
   const isInCart = (item) => {
-    console.log(item);
     return cart.some((product) => product.item === item);
   };
 
@@ -54,13 +58,8 @@ export const CartContextProvider = ({ children }) => {
     memoizedAddAll();
   }, [cart, memoizedAddAll]);
 
-  
-
   const removeItem = (item) => {
-    console.log(item)
       let repeatedProduct = cart.find((element) => element.item.id === item);
-      console.log('here is repeated' + repeatedProduct)
-      console.log(cart[0].item.id)
       const newObject = {
         item: repeatedProduct.item,
         quantity: Number(repeatedProduct.quantity),
@@ -71,9 +70,7 @@ export const CartContextProvider = ({ children }) => {
       }else {
         newObject.quantity -= 1;
       let auxiliarCart = cart.filter((element) => element.item === item);
-      console.log('here is auxiliar' + auxiliarCart)
       setCart([...auxiliarCart, newObject]);
-      console.log(cart)
       }
 
     }
@@ -82,6 +79,59 @@ export const CartContextProvider = ({ children }) => {
     setCart([])
   }
 
+  const confirmOrder = () => {
+    setProcessingOrder(true)
+
+    const objOrder = {
+        items: cart,
+        // total: getTotal(),
+        adress: contact.adress,
+        comment: contact.comment,
+        date: Timestamp.fromDate(new Date())
+    }
+
+    const batch = writeBatch(db)
+    const outOfStock = []
+
+    console.log('hello 1')
+
+    objOrder.items.forEach(async (prod) => {
+      console.log('hello 2', prod.item.id)
+      const docRef = doc(db, "items", prod.item.id)
+      getDoc(docRef).then(documentSnapshot => {
+        console.log('hello documentSnapshot', documentSnapshot)
+        console.log('hello quantiyty', prod.quantity)
+        if(documentSnapshot.data().stock >= prod.quantity){
+         const newStock = documentSnapshot.data().stock - prod.quantity;
+         console.log('hello newstock', newStock)
+          batch.update(docRef, {
+            stock: newStock
+          });
+          batch.commit()
+            .then(() => {console.log('helllo batch updated bro')})        
+        }
+         else {
+          outOfStock.push({id: documentSnapshot.id, ...documentSnapshot})
+        }
+      
+      })
+      
+
+    if(outOfStock.length === 0) {
+      addDoc(collection(db, 'orders'), objOrder).then(({id}) =>{
+        batch.commit().then(() => {
+          setNotification('success', 'El id  de su orden es:', id)
+        })
+      }).catch((error) => {
+        setNotification('error', 'Error ejecutando la orden')
+      })
+    }
+
+    })
+    
+}
+
+
   return (
     <CartContext.Provider
       value={{
@@ -89,7 +139,8 @@ export const CartContextProvider = ({ children }) => {
           totalQuantity,
           addItem,
           removeItem,
-          cleanCart
+          cleanCart,
+          confirmOrder
       }}
     >
       {children}
