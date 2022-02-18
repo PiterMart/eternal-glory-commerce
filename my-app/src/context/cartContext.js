@@ -93,22 +93,16 @@ export const CartContextProvider = ({ children }) => {
     const batch = writeBatch(db)
     const outOfStock = []
 
-    console.log('hello 1')
-
     objOrder.items.forEach(async (prod) => {
-      console.log('hello 2', prod.item.id)
       const docRef = doc(db, "items", prod.item.id)
       getDoc(docRef).then(documentSnapshot => {
-        console.log('hello documentSnapshot', documentSnapshot)
-        console.log('hello quantiyty', prod.quantity)
         if(documentSnapshot.data().stock >= prod.quantity){
          const newStock = documentSnapshot.data().stock - prod.quantity;
-         console.log('hello newstock', newStock)
           batch.update(docRef, {
             stock: newStock
           });
           batch.commit()
-            .then(() => {console.log('helllo batch updated bro')})        
+            .then(() => {console.log('hello batch updated')}, setCart([]))        
         }
          else {
           outOfStock.push({id: documentSnapshot.id, ...documentSnapshot})
