@@ -15,10 +15,13 @@ Components: -Welcome: Welcoming page with a button that links to the 'releases' 
             -ItemListContainer: calls the firebase database and sets the products or its childs to use, and displays the hole ItemListContainer or it filters by category.
             -ItemDetail: Shows the selected item information, a counter (wich is programmed inside the component), and a button that adds the selected amount of that specific item to the cart through the cartContext aswell as sending a message through the NotificationContext . Also a link to 'Cart' (Go to Cart) and 'releases' (Back to catalogue).
             -ItemDetailContainer: calls the firebase database to fech the selected product by id for its child (ItemDetail) to use. Displays the ItemDetail component.
-            -Cart: Maps a list of products inside the Cart from CartContext, showing an image, name, quantity (inside of cart) and price. Lets user delete items from cart with the (Delete) button using the removeItem function and clear the hole Cart with the cleanCart function from CartContext. Also Links to '/releases' with the (Keep Shopping) button.
+            -Cart: Maps a list of products inside the Cart from CartContext, showing an image, name, quantity (inside of cart) and price. Lets user delete items from cart with the (Delete) button using the removeItem function and clear the hole Cart with the cleanCart function from CartContext. Also Links to '/releases' with the (Keep Shopping) button. 'Buy' button runs confirmOrder from cartContext.
 
 Contexts:   -NotificationContext: This context sets the state 'message' with a  20000 ms timeout. That is then provided to  the marquee in the 'Notification' component.
-            -CartContext: 
+            -CartContext: stores the list of items in the cart and handles the functions to manage them: additem: checks if an item is in the cart, if it isnt it adds the amount specified in the itemDetail count, if it is it adds the values of quantities already in the cart and the new ones to be added.
+            remove item: removes 1 specified item from the cart.
+            cleanCart: replaces the contents of the cart with an empty array.
+            confirmOrder: makes an order of the items in cart to the firebase database, checks stock and updates the stock if the purchase is possible.
 
 
 
