@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/eternal-glory-commerce/static/css/main.241d1f7d.css",
+    "main.js": "/eternal-glory-commerce/static/js/main.75ead872.js",
+    "static/js/787.cfd8f164.chunk.js": "/eternal-glory-commerce/static/js/787.cfd8f164.chunk.js",
+    "static/media/animacionGirl.mp4": "/eternal-glory-commerce/static/media/animacionGirl.7fb73c23ab86f4d88f73.mp4",
+    "static/media/eternal logo small.png": "/eternal-glory-commerce/static/media/eternal logo small.ff351226c82aec719b2e.png",
+    "static/media/loading.gif": "/eternal-glory-commerce/static/media/loading.340c34fcc44c061c3771.gif",
+    "index.html": "/eternal-glory-commerce/index.html",
+    "main.241d1f7d.css.map": "/eternal-glory-commerce/static/css/main.241d1f7d.css.map",
+    "main.75ead872.js.map": "/eternal-glory-commerce/static/js/main.75ead872.js.map",
+    "787.cfd8f164.chunk.js.map": "/eternal-glory-commerce/static/js/787.cfd8f164.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.241d1f7d.css",
+    "static/js/main.75ead872.js"
+  ]
+}
